@@ -26,25 +26,11 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/">django-bootstrap-toolkit</a>
+            <a class="brand">Bókamiðlarinn</a>
             <ul class="nav">
-                <li><a href="{% url 'home' %}" class="">Home</a></li>
-                <li><a href="{% url 'baekur.views.demo_form' %}">Form</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forms<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="nav" href="{% url 'baekur.views.demo_form' %}?layout=vertical">Vertical</a></li>
-                        <li><a href="{% url 'baekur.views.demo_form' %}?layout=horizontal">Horizontal</a></li>
-                        <li><a href="{% url 'baekur.views.demo_form_inline' %}?layout=inline">Inline</a></li>
-                        <li><a href="{% url 'baekur.views.demo_form_inline' %}?layout=search">Search</a></li>
-                        <li><a href="{% url 'baekur.views.demo_form_with_template' %}?layout=horizontal">Using template</a></li>
-                    </ul>
-                </li>
-                <li><a href="{% url 'formset' %}">Formset</a></li>
-                <li><a href="{% url 'tabs' %}">Tabs &amp; Pills</a></li>
-                <li><a href="{% url 'pagination' %}">Pagination</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-            </ul>
+                <li><a href="/">Upphafssíða</a></li>
+                <li><a href="{% url 'baekur.views.selja' %}">Selja bók</a></li>
+                <li><form onsubmit="{% url 'baekur.views.leita' %}"> <input type="text" onclick="$(this).value('')" value="ISBN, höfundur eða titill ..."></input> <input type="submit" text="Leita!"></input> </form></li>
         </div>
     </div>
 </div>
@@ -58,14 +44,9 @@
     <p><hr></p>
 
     <footer class="row">
-        <div class="span6">
-            <p>This is <a href="https://github.com/dyve/django-bootstrap-toolkit">django-bootstrap-toolkit</a></p>
-        </div>
         <div class="span6" style="text-align:right">
             <p>
-                &copy; <a href="http://twitter.com/dyve">Dylan Verheul</a> 2012
-                |
-                <a href="https://raw.github.com/dyve/django-bootstrap-toolkit/master/LICENSE">license</a>
+            <p>&copy; Ingólfur og Trausti production 2013</p>
             </p>
         </div>
     </footer>

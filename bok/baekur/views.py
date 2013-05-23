@@ -9,7 +9,7 @@ from bootstrap_toolkit.widgets import BootstrapUneditableInput
 from .forms import TestForm, TestModelForm, TestInlineForm, WidgetsForm, FormSetInlineForm
 
 
-def demo_form_with_template(request):
+def selja(request):
     layout = request.GET.get('layout')
     if not layout:
         layout = 'vertical'
@@ -24,7 +24,7 @@ def demo_form_with_template(request):
         'layout': layout,
     }))
 
-def demo_form(request):
+def selja2(request):
     messages.success(request, 'I am a success message.')
     layout = request.GET.get('layout')
     if not layout:
@@ -40,7 +40,7 @@ def demo_form(request):
         'layout': layout,
     }))
 
-def demo_form_inline(request):
+def selja3(request):
     layout = request.GET.get('layout', '')
     if layout != 'search':
         layout = 'inline'
@@ -51,7 +51,7 @@ def demo_form_inline(request):
     }))
 
 
-def demo_formset(request):
+def selja4(request):
     layout = request.GET.get('layout')
     if not layout:
         layout = 'inline'
@@ -67,27 +67,9 @@ def demo_formset(request):
     }))
 
 
-def demo_tabs(request):
-    layout = request.GET.get('layout')
-    if not layout:
-        layout = 'tabs'
-    tabs = [
-        {
-            'link': "#",
-            'title': 'Tab 1',
-            },
-        {
-            'link': "#",
-            'title': 'Tab 2',
-            }
-    ]
-    return render_to_response('tabs.html', RequestContext(request, {
-        'tabs': tabs,
-        'layout': layout,
-        }))
 
 
-def demo_pagination(request):
+def leita(request):
     lines = []
     for i in range(10000):
         lines.append(u'Line %s' % (i + 1))
@@ -101,15 +83,7 @@ def demo_pagination(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         show_lines = paginator.page(paginator.num_pages)
-    return render_to_response('pagination.html', RequestContext(request, {
+    return render_to_response('leita.html', RequestContext(request, {
         'lines': show_lines,
     }))
 
-
-def demo_widgets(request):
-    layout = request.GET.get('layout', 'vertical')
-    form = WidgetsForm()
-    return render_to_response('form.html', RequestContext(request, {
-        'form': form,
-        'layout': layout,
-    }))
