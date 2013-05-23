@@ -1,19 +1,28 @@
-from django.conf.urls import patterns, include, url
-from baekur import views
+from django.conf.urls import patterns, url
 
 # Uncomment the next two lines to enable the admin:
-from django.contrib import admin
-admin.autodiscover()
+# from django.contrib import admin
+# admin.autodiscover()
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'bok.views.home', name='home'),
-    # url(r'^bok/', include('bok.foo.urls')),
+    # url(r'^$', 'demo_project.views.home', name='home'),
+    # url(r'^demo_project/', include('demo_project.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-     url(r'^admin/', include(admin.site.urls)),
-     url(r'^', views.index),
+    # url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', TemplateView.as_view(template_name='index.html'), name="home"),
+    url(r'^contact$', TemplateView.as_view(template_name='contact.html'), name="contact"),
+    url(r'^form$', 'baekur.views.demo_form'),
+    url(r'^form_template$', 'baekur.views.demo_form_with_template'),
+    url(r'^form_inline$', 'baekur.views.demo_form_inline'),
+    url(r'^formset$', 'baekur.views.demo_formset', {}, "formset"),
+    url(r'^tabs$', 'baekur.views.demo_tabs', {}, "tabs"),
+    url(r'^pagination$', 'baekur.views.demo_pagination', {}, "pagination"),
+    url(r'^widgets$', 'baekur.views.demo_widgets', {}, "widgets"),
 )
