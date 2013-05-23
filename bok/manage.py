@@ -1,6 +1,7 @@
 #!/usr/bin/env python2
 import os
 import sys
+from config import *
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bok.settings")

@@ -1,5 +1,7 @@
 # Django settings for bok project.
 import os
+import sys
+
 SETTINGS_ROOT = os.path.dirname(__file__)
 
 DEBUG = True
