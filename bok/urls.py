@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', TemplateView.as_view(template_name='index.html'), name="home"),
-    url(r'^leita$', 'baekur.views.leita'),
-    url(r'^selja$', 'baekur.views.selja'),
+    url(r'^leita/$', 'baekur.views.leita'),
+    url(r'^selja/$', 'baekur.views.selja'),
 )
 

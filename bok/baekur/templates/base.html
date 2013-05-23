@@ -30,7 +30,7 @@
             <ul class="nav">
                 <li><a href="/">Upphafssíða</a></li>
                 <li><a href="{% url 'baekur.views.selja' %}">Selja bók</a></li>
-                <li><form onsubmit="{% url 'baekur.views.leita' %}"> <input type="text" onclick="$(this).value('')" value="ISBN, höfundur eða titill ..."></input> <input type="submit" text="Leita!"></input> </form></li>
+                <li><form action="{% url 'baekur.views.leita' %}"> <input type="text" name="q" onclick="$(this).attr('value','')" value="ISBN, höfundur eða titill ..."></input> <input type="submit" value="Leita að bók!"></input> </form></li>
         </div>
     </div>
 </div>

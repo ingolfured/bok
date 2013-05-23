@@ -1,3 +1,7 @@
+import json
+import urllib
+import urllib2
+
 from django.contrib import messages
 from django.forms.formsets import formset_factory
 from django.shortcuts import render_to_response
@@ -66,13 +70,27 @@ def selja4(request):
         'layout': layout,
     }))
 
-
+def getBooks(query):
+    startIndex = 0
+    lines = []
+    s = "https://www.googleapis.com/books/v1/volumes/?"
+    d = urllib.urlencode({'q' : query, 'maxResults' : 40})
+    print s,d
+    x = urllib2.urlopen(s + d)
+    j = json.loads(x.read())
+    lines = j["items"]
+    totalcount = j["totalItems"]
+    print j.keys(), totalcount, len(lines)
+    return lines
 
 
 def leita(request):
-    lines = []
-    for i in range(10000):
-        lines.append(u'Line %s' % (i + 1))
+    q = request.GET.get('q')
+    try:
+        lines = getBooks(q)
+    except:
+        raise
+
     paginator = Paginator(lines, 10)
     page = request.GET.get('page')
     try:
